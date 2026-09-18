@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09080d">
+<title>مَلك | أحببتُ الملك</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#09080d;
+  --bg2:#100d15;
+  --card:#15111b;
+  --card2:#1b1522;
+  --gold:#e9c46a;
+  --gold2:#ffe4a0;
+  --rose:#d96c91;
+  --rose2:#ff9fbd;
+  --text:#f7f2f5;
+  --muted:#aaa1ac;
+  --line:rgba(255,255,255,.09);
+  --shadow:0 25px 80px rgba(0,0,0,.38);
+  --radius:26px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+    radial-gradient(circle at 10% 5%,rgba(217,108,145,.12),transparent 28%),
+    radial-gradient(circle at 90% 20%,rgba(233,196,106,.09),transparent 25%),
+    var(--bg);
+  color:var(--text);
+  font-family:"Cairo",sans-serif;
+  line-height:1.9;
+  overflow-x:hidden;
+}
+
+body.light{
+  --bg:#f6f1f3;
+  --bg2:#fffafc;
+  --card:#ffffff;
+  --card2:#f8f1f4;
+  --text:#251b22;
+  --muted:#746a71;
+  --line:rgba(37,27,34,.10);
+  --shadow:0 20px 60px rgba(75,38,52,.12);
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font-family:inherit;
+}
+
+::-webkit-scrollbar{
+  width:9px;
+}
+
+::-webkit-scrollbar-track{
+  background:var(--bg);
+}
+
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(var(--rose),var(--gold));
+  border-radius:20px;
+}
+
+/* Loader */
+.loader{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:#09080d;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.7s ease;
+}
+
+.loader.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+.loader-inner{
+  text-align:center;
+}
+
+.loader-heart{
+  width:70px;
+  height:70px;
+  margin:auto;
+  display:grid;
+  place-items:center;
+  font-size:40px;
+  animation:pulse 1.2s infinite;
+}
+
+.loader h2{
+  font-family:"Amiri",serif;
+  color:#ffe4a0;
+  margin-top:12px;
+}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.16)}
+}
+
+/* Top */
+.topline{
+  height:4px;
+  background:linear-gradient(90deg,var(--rose),var(--gold),var(--rose));
+}
+
+.nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(9,8,13,.82);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+
+body.light .nav{
+  background:rgba(255,250,252,.86);
+}
+
+.nav-inner{
+  max-width:1450px;
+  margin:auto;
+  min-height:78px;
+  padding:0 25px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand-mark{
+  width:47px;
+  height:47px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(145deg,var(--rose),#8d3457);
+  box-shadow:0 10px 30px rgba(217,108,145,.25);
+  font-family:"Amiri",serif;
+  font-size:24px;
+  color:white;
+}
+
+.brand-text strong{
+  display:block;
+  font-family:"Amiri",serif;
+  font-size:23px;
+  line-height:1;
+}
+
+.brand-text span{
+  color:var(--muted);
+  font-size:11px;
+}
+
+.nav-links{
+  display:flex;
+  gap:7px;
+  align-items:center;
+}
+
+.nav-links a{
+  padding:10px 13px;
+  color:var(--muted);
+  border-radius:12px;
+  transition:.25s;
+  font-size:14px;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+  color:var(--gold2);
+  background:rgba(233,196,106,.08);
+}
+
+.nav-actions{
+  display:flex;
+  gap:8px;
+}
+
+.icon-btn{
+  border:1px solid var(--line);
+  width:43px;
+  height:43px;
+  border-radius:14px;
+  background:var(--card);
+  color:var(--text);
+  cursor:pointer;
+  font-size:18px;
+  transition:.25s;
+}
+
+.icon-btn:hover{
+  transform:translateY(-2px);
+  border-color:rgba(233,196,106,.35);
+}
+
+.menu-btn{
+  display:none;
+}
+
+/* Hero */
+.hero{
+  max-width:1450px;
+  margin:auto;
+  padding:75px 25px 45px;
+}
+
+.hero-box{
+  min-height:620px;
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:38px;
+  background:
+    linear-gradient(90deg,rgba(9,8,13,.97) 12%,rgba(9,8,13,.77) 52%,rgba(9,8,13,.22)),
+    radial-gradient(circle at 80% 40%,rgba(217,108,145,.25),transparent 25%),
+    radial-gradient(circle at 75% 70%,rgba(233,196,106,.14),transparent 20%),
+    linear-gradient(135deg,#21111b,#0c0a10 70%);
+  box-shadow:var(--shadow);
+  display:flex;
+  align-items:center;
+  padding:70px;
+}
+
+body.light .hero-box{
+  background:
+    linear-gradient(90deg,rgba(255,250,252,.97) 15%,rgba(255,250,252,.75)),
+    linear-gradient(135deg,#f3dce4,#fff);
+}
+
+.hero-orbit{
+  position:absolute;
+  width:500px;
+  height:500px;
+  border:1px solid rgba(233,196,106,.13);
+  border-radius:50%;
+  right:5%;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+.hero-orbit::before,
+.hero-orbit::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  border:1px solid rgba(217,108,145,.12);
+}
+
+.hero-orbit::before{
+  inset:45px;
+}
+
+.hero-orbit::after{
+  inset:100px;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:760px;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:7px 13px;
+  border-radius:30px;
+  border:1px solid rgba(233,196,106,.25);
+  background:rgba(233,196,106,.06);
+  color:var(--gold2);
+  font-size:13px;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-family:"Amiri",serif;
+  font-size:clamp(55px,8vw,105px);
+  line-height:1;
+  margin-bottom:16px;
+  background:linear-gradient(90deg,#fff,#ffe4a0,#ff9fbd);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero h2{
+  font-family:"Amiri",serif;
+  font-size:clamp(25px,3vw,42px);
+  font-weight:400;
+  color:var(--gold2);
+  margin-bottom:20px;
+}
+
+.hero p{
+  max-width:700px;
+  color:var(--muted);
+  font-size:17px;
+  line-height:2.2;
+}
+
+.hero-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:30px;
+}
+
+.meta-pill{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.04);
+  border-radius:14px;
+  padding:9px 15px;
+  color:#ddd;
+  font-size:13px;
+}
+
+body.light .meta-pill{
+  color:var(--text);
+}
+
+.hero-actions{
+  display:flex;
+  gap:12px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:0;
+  cursor:pointer;
+  border-radius:14px;
+  padding:13px 21px;
+  font-weight:700;
+  transition:.25s;
+}
+
+.btn-primary{
+  color:#191016;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  box-shadow:0 12px 30px rgba(233,196,106,.16);
+}
+
+.btn-secondary{
+  color:var(--text);
+  border:1px solid var(--line);
+  background:var(--card);
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+/* Stats */
+.stats{
+  max-width:1300px;
+  margin:-10px auto 70px;
+  padding:0 25px;
+  position:relative;
+  z-index:5;
+}
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.stat{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:24px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+
+.stat-number{
+  color:var(--gold2);
+  font-family:"Playfair Display",serif;
+  font-size:35px;
+  font-weight:700;
+}
+
+.stat-label{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* Main */
+.container{
+  max-width:1250px;
+  margin:auto;
+  padding:0 25px 100px;
+}
+
+.section{
+  margin-bottom:90px;
+}
+
+.section-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:28px;
+}
+
+.section-title small{
+  color:var(--rose2);
+  display:block;
+  font-size:12px;
+  letter-spacing:2px;
+  margin-bottom:5px;
+}
+
+.section-title h2{
+  font-family:"Amiri",serif;
+  font-size:42px;
+}
+
+.section-title p{
+  color:var(--muted);
+  font-size:14px;
+  margin-top:3px;
+}
+
+/* Intro */
+.intro{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:25px;
+}
+
+.intro-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:35px;
+}
+
+.intro-card h3{
+  font-family:"Amiri",serif;
+  font-size:28px;
+  color:var(--gold2);
+  margin-bottom:15px;
+}
+
+.intro-card p{
+  color:var(--muted);
+  line-height:2.2;
+}
+
+.quote-box{
+  min-height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:
+    radial-gradient(circle at 85% 20%,rgba(217,108,145,.16),transparent 30%),
+    var(--card2);
+}
+
+.quote-mark{
+  font-family:"Amiri",serif;
+  font-size:80px;
+  color:var(--rose);
+  line-height:.5;
+}
+
+.quote-text{
+  font-family:"Amiri",serif;
+  font-size:28px;
+  line-height:1.8;
+  margin:20px 0;
+}
+
+.quote-author{
+  color:var(--gold);
+  font-size:13px;
+}
+
+/* Index */
+.toolbar{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:22px;
+}
+
+.search{
+  flex:1;
+  min-width:220px;
+  height:49px;
+  border-radius:15px;
+  border:1px solid var(--line);
+  background:var(--card);
+  color:var(--text);
+  outline:none;
+  padding:0 17px;
+  font-family:inherit;
+}
+
+.search:focus{
+  border-color:rgba(233,196,106,.45);
+}
+
+.filter-btn{
+  border:1px solid var(--line);
+  background:var(--card);
+  color:var(--muted);
+  padding:0 17px;
+  border-radius:15px;
+  cursor:pointer;
+}
+
+.filter-btn.active{
+  color:var(--gold2);
+  border-color:rgba(233,196,106,.3);
+}
+
+.poem-list{
+  display:grid;
+  gap:15px;
+}
+
+.poem-item{
+  display:grid;
+  grid-template-columns:70px 1fr auto;
+  gap:18px;
+  align-items:center;
+  padding:20px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  transition:.3s;
+}
+
+.poem-item:hover{
+  transform:translateX(-5px);
+  border-color:rgba(233,196,106,.22);
+}
+
+.poem-num{
+  width:58px;
+  height:58px;
+  border-radius:18px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(145deg,rgba(217,108,145,.18),rgba(233,196,106,.08));
+  color:var(--gold2);
+  font-family:"Playfair Display",serif;
+  font-size:20px;
+}
+
+.poem-item h3{
+  font-family:"Amiri",serif;
+  font-size:25px;
+}
+
+.poem-item p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.poem-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:8px;
+}
+
+.tag{
+  font-size:10px;
+  padding:3px 8px;
+  border-radius:20px;
+  background:rgba(217,108,145,.08);
+  color:var(--rose2);
+}
+
+/* Poem */
+.poem-card{
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.015),transparent),
+    var(--card);
+  border:1px solid var(--line);
+  border-radius:32px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  margin-bottom:35px;
+}
+
+.poem-head{
+  padding:35px;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(circle at 85% 20%,rgba(217,108,145,.14),transparent 25%),
+    radial-gradient(circle at 15% 90%,rgba(233,196,106,.08),transparent 25%);
+}
+
+.poem-head-top{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:start;
+}
+
+.poem-kicker{
+  color:var(--rose2);
+  font-size:12px;
+  margin-bottom:5px;
+}
+
+.poem-title{
+  font-family:"Amiri",serif;
+  font-size:44px;
+  color:var(--gold2);
+}
+
+.poem-subtitle{
+  color:var(--muted);
+  margin-top:4px;
+}
+
+.favorite{
+  width:48px;
+  height:48px;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:var(--bg2);
+  color:var(--muted);
+  cursor:pointer;
+  font-size:20px;
+  transition:.25s;
+}
+
+.favorite.active{
+  color:#ff6f9d;
+  border-color:rgba(255,111,157,.3);
+}
+
+.poem-info{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.info{
+  background:rgba(255,255,255,.025);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:14px;
+}
+
+.info span{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.info strong{
+  color:var(--text);
+  font-size:13px;
+}
+
+.poem-body{
+  padding:45px 30px;
+}
+
+.poem-text{
+  max-width:850px;
+  margin:auto;
+  font-family:"Amiri",serif;
+  font-size:22px;
+  line-height:2.35;
+  color:#eee7eb;
+}
+
+body.light .poem-text{
+  color:var(--text);
+}
+
+.poem-text .line{
+  display:block;
+  margin-bottom:4px;
+}
+
+.poem-text .space{
+  height:14px;
+}
+
+.poem-tools{
+  max-width:850px;
+  margin:35px auto 0;
+  display:flex;
+  justify-content:center;
+  gap:9px;
+  flex-wrap:wrap;
+}
+
+.small-btn{
+  border:1px solid var(--line);
+  background:var(--card2);
+  color:var(--muted);
+  padding:9px 14px;
+  border-radius:12px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.small-btn:hover{
+  color:var(--gold2);
+  transform:translateY(-2px);
+}
+
+/* Analysis */
+.analysis{
+  padding:35px;
+  border-top:1px solid var(--line);
+  background:rgba(255,255,255,.012);
+}
+
+.analysis-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.analysis-box{
+  padding:22px;
+  background:var(--card2);
+  border:1px solid var(--line);
+  border-radius:19px;
+}
+
+.analysis-box h4{
+  color:var(--gold2);
+  margin-bottom:8px;
+  font-family:"Amiri",serif;
+  font-size:22px;
+}
+
+.analysis-box p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:2;
+}
+
+/* Purpose */
+.purpose{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:20px;
+}
+
+.purpose-main,
+.purpose-side{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:30px;
+}
+
+.purpose-main h3,
+.purpose-side h3{
+  font-family:"Amiri",serif;
+  font-size:28px;
+  color:var(--gold2);
+  margin-bottom:14px;
+}
+
+.purpose-main p,
+.purpose-side li{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.purpose-side ul{
+  list-style:none;
+  display:grid;
+  gap:10px;
+}
+
+.purpose-side li{
+  padding:10px 12px;
+  border-radius:12px;
+  background:rgba(255,255,255,.025);
+}
+
+.purpose-side li::before{
+  content:"✦";
+  color:var(--rose2);
+  margin-left:8px;
+}
+
+/* End */
+.end-nav{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.end-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:23px;
+  transition:.25s;
+}
+
+.end-card:hover{
+  transform:translateY(-3px);
+}
+
+.end-card small{
+  color:var(--muted);
+}
+
+.end-card strong{
+  display:block;
+  font-family:"Amiri",serif;
+  font-size:24px;
+  color:var(--gold2);
+}
+
+/* Footer */
+footer{
+  border-top:1px solid var(--line);
+  background:#070609;
+  padding:45px 25px;
+  text-align:center;
+}
+
+body.light footer{
+  background:#eee5e9;
+}
+
+.footer-logo{
+  font-family:"Amiri",serif;
+  color:var(--gold);
+  font-size:30px;
+}
+
+footer p{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:5px;
+}
+
+/* Reading progress */
+.progress{
+  position:fixed;
+  top:0;
+  right:0;
+  height:4px;
+  width:0%;
+  z-index:2000;
+  background:linear-gradient(90deg,var(--rose),var(--gold));
+}
+
+/* Toast */
+.toast{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  z-index:5000;
+  background:#17121b;
+  color:#fff;
+  border:1px solid rgba(233,196,106,.2);
+  box-shadow:var(--shadow);
+  border-radius:15px;
+  padding:13px 18px;
+  transform:translateY(100px);
+  opacity:0;
+  transition:.35s;
+  font-size:13px;
+}
+
+.toast.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+/* Floating */
+.float-heart{
+  position:fixed;
+  pointer-events:none;
+  z-index:1;
+  opacity:.12;
+  animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+  from{
+    transform:translateY(0) rotate(0);
+    opacity:0;
+  }
+  20%{opacity:.15}
+  to{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* Mobile */
+@media(max-width:1050px){
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:78px;
+    right:15px;
+    left:15px;
+    padding:12px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .nav-links.open{
+    display:flex;
+  }
+
+  .nav-links a{
+    text-align:center;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .hero-box{
+    padding:45px 35px;
+  }
+
+  .intro,
+  .purpose{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:720px){
+  .nav-inner{
+    padding:0 14px;
+  }
+
+  .brand-text strong{
+    font-size:20px;
+  }
+
+  .hero{
+    padding:25px 14px;
+  }
+
+  .hero-box{
+    min-height:590px;
+    border-radius:27px;
+    padding:35px 23px;
+  }
+
+  .hero h1{
+    font-size:60px;
+  }
+
+  .hero h2{
+    font-size:27px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  .hero-orbit{
+    width:350px;
+    height:350px;
+    right:-100px;
+  }
+
+  .stats{
+    padding:0 14px;
+  }
+
+  .stats-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .container{
+    padding:0 14px 70px;
+  }
+
+  .section{
+    margin-bottom:65px;
+  }
+
+  .section-title h2{
+    font-size:34px;
+  }
+
+  .poem-item{
+    grid-template-columns:55px 1fr;
+  }
+
+  .poem-item .btn{
+    grid-column:1/-1;
+    width:100%;
+  }
+
+  .poem-num{
+    width:50px;
+    height:50px;
+  }
+
+  .poem-title{
+    font-size:34px;
+  }
+
+  .poem-info{
+    grid-template-columns:1fr;
+  }
+
+  .poem-body{
+    padding:30px 18px;
+  }
+
+  .poem-text{
+    font-size:20px;
+    line-height:2.3;
+  }
+
+  .analysis{
+    padding:22px 18px;
+  }
+
+  .analysis-grid{
+    grid-template-columns:1fr;
+  }
+
+  .end-nav{
+    grid-template-columns:1fr;
+  }
+
+  .intro-card{
+    padding:25px;
+  }
+
+  .quote-text{
+    font-size:24px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-heart">♥</div>
+    <h2>مَلك | أحببتُ الملك</h2>
+    <p style="color:#888;font-size:12px;">نفتح الديوان...</p>
+  </div>
+</div>
+
+<div class="topline"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+
+    <a href="index.html" class="brand">
+      <div class="brand-mark">م</div>
+      <div class="brand-text">
+        <strong>مدار الحروف</strong>
+        <span>شعر وخواطر</span>
+      </div>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">الرئيسية</a>
+      <a href="#about">عن الديوان</a>
+      <a href="#index">الفهرس</a>
+      <a href="#poems">القصائد</a>
+      <a href="#purpose">الفكرة</a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+      <button class="icon-btn" id="themeBtn">☼</button>
+      <button class="icon-btn" id="searchBtn">⌕</button>
+    </div>
+
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-box">
+
+    <div class="hero-orbit"></div>
+
+    <div class="hero-content">
+
+      <span class="eyebrow">✦ الديوان الأول · حكاية اسمها مَلك</span>
+
+      <h1>مَلك</h1>
+
+      <h2>أحببتُ الملك</h2>
+
+      <p>
+        ديوان عن بنتٍ دخلت الحكاية من غير ميعاد،
+        وعن مشاعر بدأت بسيطة ثم كبرت يومًا بعد يوم.
+        هنا الحب مش مجرد كلمة، لكنه اهتمام، خوف، انتظار،
+        تفاصيل صغيرة، وذكريات بتفضل عايشة حتى بعد ما يعدّي الوقت.
+      </p>
+
+      <div class="hero-meta">
+        <span class="meta-pill">٤ قصائد طويلة</span>
+        <span class="meta-pill">نثر شعري وموسيقى داخلية</span>
+        <span class="meta-pill">عن الحب والامتنان</span>
+        <span class="meta-pill">كتابة شخصية</span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#poems" class="btn btn-primary">ابدأ القراءة ↓</a>
+        <a href="index.html" class="btn btn-secondary">← العودة للمنصة</a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-number">٤</div>
+      <div class="stat-label">قصائد الديوان</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">٢٠٠+</div>
+      <div class="stat-label">سطر شعري</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">١</div>
+      <div class="stat-label">حكاية أساسية</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">∞</div>
+      <div class="stat-label">تفاصيل لا تُنسى</div>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+
+<!-- ABOUT -->
+<section class="section" id="about">
+
+  <div class="section-head">
+    <div class="section-title">
+      <small>ABOUT THE DIWAN</small>
+      <h2>عن «أحببتُ الملك»</h2>
+      <p>مش مجرد ديوان حب... دي حكاية مشاعر.</p>
+    </div>
+  </div>
+
+  <div class="intro">
+
+    <div class="intro-card">
+      <h3>ليه الديوان ده اتكتب؟</h3>
+      <p>
+        لأن في مشاعر ساعات بتكون أكبر من إنك تقولها في رسالة قصيرة.
+        وفي أشخاص بيخلّوا التفاصيل العادية ليها معنى مختلف.
+        الديوان ده محاولة إني أحوّل الإحساس لكلام،
+        من غير ما أخليه متصنع أو بعيد عن الحقيقة.
+        كل قصيدة هنا لها زاوية مختلفة:
+        مرة عن بداية الحكاية،
+        ومرة عن التفاصيل الصغيرة،
+        ومرة عن الخوف من فقدان شخص مهم،
+        ومرة عن الامتنان لوجوده.
+      </p>
+    </div>
+
+    <div class="intro-card quote-box">
+      <div class="quote-mark">“</div>
+      <div class="quote-text">
+        بعض الأشخاص لا يغيّرون حياتنا بالكامل...
+        لكنهم يجعلون تفاصيلها أجمل.
+      </div>
+      <div class="quote-author">— من روح الديوان</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INDEX -->
+<section class="section" id="index">
+
+  <div class="section-head">
+    <div class="section-title">
+      <small>POEM INDEX</small>
+      <h2>فهرس القصائد</h2>
+      <p>اختار القصيدة اللي تحب تبدأ منها.</p>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <input
+      id="poemSearch"
+      class="search"
+      type="search"
+      placeholder="ابحث باسم القصيدة أو موضوعها..."
+    >
+    <button class="filter-btn active" data-filter="all">الكل</button>
+    <button class="filter-btn" data-filter="بداية">البداية</button>
+    <button class="filter-btn" data-filter="تفاصيل">التفاصيل</button>
+    <button class="filter-btn" data-filter="خوف">المشاعر</button>
+  </div>
+
+  <div class="poem-list" id="poemList">
+
+    <article class="poem-item" data-tags="بداية حب حكاية">
+      <div class="poem-num">01</div>
+      <div>
+        <h3>من يوم ما قابلت مَلك</h3>
+        <p>قصيدة عن بداية الحكاية وكيف يتحول اللقاء البسيط إلى ذكرى.</p>
+        <div class="poem-tags">
+          <span class="tag">بداية</span>
+          <span class="tag">لقاء</span>
+          <span class="tag">حب</span>
+        </div>
+      </div>
+      <a class="btn btn-secondary" href="#poem1">قراءة القصيدة</a>
+    </article>
+
+    <article class="poem-item" data-tags="تفاصيل اهتمام حب">
+      <div class="poem-num">02</div>
+      <div>
+        <h3>تفاصيلك الصغيرة</h3>
+        <p>عن الأشياء التي لا يلاحظها الجميع، لكنها تصبح مهمة عند من نحب.</p>
+        <div class="poem-tags">
+          <span class="tag">تفاصيل</span>
+          <span class="tag">اهتمام</span>
+          <span class="tag">ذكريات</span>
+        </div>
+      </div>
+      <a class="btn btn-secondary" href="#poem2">قراءة القصيدة</a>
+    </article>
+
+    <article class="poem-item" data-tags="خوف فراق مشاعر">
+      <div class="poem-num">03</div>
+      <div>
+        <h3>خايف أخسر الحكاية</h3>
+        <p>عن الخوف الطبيعي على الأشياء الجميلة عندما تصبح غالية.</p>
+        <div class="poem-tags">
+          <span class="tag">خوف</span>
+          <span class="tag">فراق</span>
+          <span class="tag">مشاعر</span>
+        </div>
+      </div>
+      <a class="btn btn-secondary" href="#poem3">قراءة القصيدة</a>
+    </article>
+
+    <article class="poem-item" data-tags="امتنان مستقبل حب">
+      <div class="poem-num">04</div>
+      <div>
+        <h3>لسه في العمر كلام</h3>
+        <p>قصيدة عن الأمل في استمرار الحكاية وصناعة ذكريات جديدة.</p>
+        <div class="poem-tags">
+          <span class="tag">أمل</span>
+          <span class="tag">مستقبل</span>
+          <span class="tag">امتنان</span>
+        </div>
+      </div>
+      <a class="btn btn-secondary" href="#poem4">قراءة القصيدة</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- POEMS -->
+
+<section class="section" id="poems">
+
+<div class="section-head">
+  <div class="section-title">
+    <small>THE POEMS</small>
+    <h2>قصائد الديوان</h2>
+    <p>اقرأ بهدوء... كل قصيدة لها حكايتها.</p>
+  </div>
+</div>
+
+<!-- POEM 1 -->
+<article class="poem-card" id="poem1">
+
+  <div class="poem-head">
+
+    <div class="poem-head-top">
+
+      <div>
+        <div class="poem-kicker">القصيدة الأولى · البداية</div>
+        <h3 class="poem-title">من يوم ما قابلت مَلك</h3>
+        <p class="poem-subtitle">
+          قصيدة عن بداية الإحساس، عندما يصبح اللقاء ذكرى لا تشبه أي لقاء آخر.
+        </p>
+      </div>
+
+      <button class="favorite" data-fav="poem1">♡</button>
+
+    </div>
+
+    <div class="poem-info">
+      <div class="info">
+        <span>الفكرة</span>
+        <strong>بداية الحكاية</strong>
+      </div>
+      <div class="info">
+        <span>المشاعر</span>
+        <strong>دهشة · إعجاب · اهتمام</strong>
+      </div>
+      <div class="info">
+        <span>الهدف</span>
+        <strong>تخليد لحظة البداية</strong>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="poem-body">
+
+    <div class="poem-text" id="text1">
+
+<span class="line">من يوم ما قابلت مَلك، والدنيا بقت غير الدنيا</span>
+<span class="line">بقى للوقت معنى، وبقت للصدفة ألف حكاية</span>
+<span class="line">ماكنتش أعرف إن الاسم ممكن يفضل في البال</span>
+<span class="line">وإن حرفين تلاتة يبقوا بداية رواية</span>
+<span class="line">لقيتني بستنى كلمة، وأفرح من غير أسباب</span>
+<span class="line">وأحسب للدقيقة حساب، لو جت منها حكاية</span>
+<span class="line">مكنتش مخطط أحب، ولا كنت بدور على حد</span>
+<span class="line">بس بعض الحاجات بتيجي من غير أي دراية</span>
+<span class="line">لقيت الضحكة بسيطة، بس دخلت القلب بسهولة</span>
+<span class="line">ولقيت الكلام العادي، ليه طعم وحكاية</span>
+<span class="line">بقت مَلك مش مجرد اسم بسمعه وأعديه</span>
+<span class="line">بقت حاجة جميلة وسط زحمة الأيام الجاية</span>
+<span class="line">كل مرة أسمع صوتها، حاجة جوايا بتهدى</span>
+<span class="line">وكل مرة تغيب، أسأل نفسي: هي فين الحكاية؟</span>
+<span class="line">يمكن أنا مش شاعر، ولا بعرف أقول كل اللي جوايا</span>
+<span class="line">لكن إحساسي لما بيصدق، بيكتب من غير دراية</span>
+<span class="line">أقول إيه عن واحدة خلت يومي أخف شوية؟</span>
+<span class="line">أقول إيه عن حضورها لما يغير شكل المراية؟</span>
+<span class="line">كنت بشوف اليوم ساعات طويل وممل</span>
+<span class="line">وبقيت أستناه يمكن يعدّي فيه صوت أو حكاية</span>
+<span class="line">مش عارف البداية كانت فين بالضبط</span>
+<span class="line">بس عارف إن بعدها ما رجعتش زي البداية</span>
+<span class="line">بقيت ألاحظ تفاصيل ماكنتش بشوفها</span>
+<span class="line">وبقيت أعرف إن الاهتمام مش مجرد رواية</span>
+<span class="line">هو سؤال صغير في وقت محدش يسأل فيه</span>
+<span class="line">وهو خوف هادي لما الدنيا تبقى شوية قاسية</span>
+<span class="line">هو إنك تفتكر حد وانت مشغول جدًا</span>
+<span class="line">وتضحك لوحدك لما تيجي صورته في البال</span>
+<span class="line">من يوم ما قابلت مَلك، وأنا فاهم حاجة</span>
+<span class="line">إن بعض الناس بتدخل حياتك وتسيب علامة</span>
+<span class="line">مش لازم تعمل معجزة ولا تغير العالم</span>
+<span class="line">يكفي تخلي يومك أحسن من غير كلام</span>
+<span class="line">ومَلك كانت من الناس اللي حضورها له أثر</span>
+<span class="line">زي نسمة تيجي في عز الحر وتقول: لسه في خير</span>
+<span class="line">زي نور صغير يظهر في آخر يوم طويل</span>
+<span class="line">ويقول للقلب: استنى، يمكن بكرة يبقى أجمل</span>
+<span class="line">أنا مش بوعد إن الكلام يشرح كل حاجة</span>
+<span class="line">ولا أقدر أقول إن القصيدة هتلم الإحساس</span>
+<span class="line">بس أقدر أقول إن الاسم لما جه في بالي</span>
+<span class="line">لقيت الكلام لوحده واقف على السطر</span>
+<span class="line">وكل ما أكتب كلمة، ألاقي بعدها كلمة</span>
+<span class="line">كأن الحكاية نفسها بتقول لي: كمّل</span>
+<span class="line">يمكن البداية كانت عادية جدًا</span>
+<span class="line">بس المشاعر عمرها ما بتقيس البدايات</span>
+<span class="line">في لحظة صغيرة ممكن يتغير إحساس كبير</span>
+<span class="line">وفي شخص واحد ممكن يغير معنى ساعات</span>
+<span class="line">من يوم ما قابلت مَلك وأنا مؤمن</span>
+<span class="line">إن أجمل الحكايات مش لازم تبدأ بميعاد</span>
+<span class="line">ممكن تبدأ بكلمة، بنظرة، بابتسامة</span>
+<span class="line">وبعدين تكبر في القلب يوم ورا يوم</span>
+<span class="line">وتبقى ذكرى كل ما نفتكرها نبتسم</span>
+<span class="line">وتبقى مَلك... أجمل صدفة في الحكاية</span>
+
+    </div>
+
+    <div class="poem-tools">
+      <button class="small-btn" onclick="copyPoem('text1')">⧉ نسخ القصيدة</button>
+      <button class="small-btn" onclick="increaseFont(this)">A+ تكبير</button>
+      <button class="small-btn" onclick="decreaseFont(this)">A− تصغير</button>
+      <button class="small-btn" onclick="sharePoem('من يوم ما قابلت مَلك')">↗ مشاركة</button>
+    </div>
+
+  </div>
+
+  <div class="analysis">
+
+    <div class="analysis-grid">
+
+      <div class="analysis-box">
+        <h4>نبذة عن القصيدة</h4>
+        <p>
+          القصيدة ترصد لحظة البداية، لكن من منظور المشاعر التي ظهرت
+          بعد اللقاء. الفكرة ليست في اللقاء نفسه، بل في أثره على الأيام
+          والتفاصيل وطريقة النظر للأشياء.
+        </p>
+      </div>
+
+      <div class="analysis-box">
+        <h4>لماذا كُتبت؟</h4>
+        <p>
+          لتسجيل نقطة البداية وعدم السماح للوقت بأن يمحو التفاصيل الصغيرة
+          التي صنعت الإحساس الأول.
+        </p>
+      </div>
+
+      <div class="analysis-box">
+        <h4>المعنى العام</h4>
+        <p>
+          بعض العلاقات تبدأ بشكل عادي جدًا، ثم يكتشف الإنسان بعد فترة
+          أن شخصًا معينًا أصبح له مكان مختلف في يومه وذاكرته.
+        </p>
+      </div>
+
+      <div class="analysis-box">
+        <h4>الصورة والإحساس</h4>
+        <p>
+          اعتمدت القصيدة على تشبيهات قريبة من الحياة اليومية:
+          النسمة، النور، اليوم الطويل، والابتسامة؛ حتى يظل الشعور
+          طبيعيًا وغير متكلف.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+<!-- POEM 2 -->
+<article class="poem-card" id="poem2">
+
+  <div class="poem-head">
+
+    <div class="poem-head-top">
+      <div>
+        <div class="poem-kicker">القصيدة الثانية · التفاصيل</div>
+        <h3 class="poem-title">تفاصيلك الصغيرة</h3>
+        <p class="poem-subtitle">
+          عن الأشياء البسيطة التي تصبح كبيرة عندما يكون الشخص غاليًا.
+        </p>
+      </div>
+
+      <button class="favorite" data-fav="poem2">♡</button>
+    </div>
+
+    <div class="poem-info">
+      <div class="info">
+        <span>الفكرة</span>
+        <strong>التفاصيل اليومية</strong>
+      </div>
+      <div class="info">
+        <span>المشاعر</span>
+        <strong>اهتمام · حنان · قرب</strong>
+      </div>
+      <div class="info">
+        <span>الهدف</span>
+        <strong>إظهار قيمة التفاصيل</strong>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="poem-body">
+
+    <div class="poem-text" id="text2">
+
+<span class="line">أنا مش بحب فيكي بس الكلام الكبير</span>
+<span class="line">أنا بحب التفاصيل اللي محدش بياخد باله منها</span>
+<span class="line">بحب صوتك لما يكون هادي في آخر اليوم</span>
+<span class="line">وبحب ضحكتك لما تطلع من غير ترتيب</span>
+<span class="line">بحب سؤالك لما تسألي: إنت كويس؟</span>
+<span class="line">كأن السؤال ده لوحده كفاية يطمن القلب</span>
+<span class="line">بحب إنك تفتكري حاجة قلتها من زمان</span>
+<span class="line">وأنا نفسي أكون نسيتها وسط الزحمة</span>
+<span class="line">بحب طريقة كلامك لما تكوني فرحانة</span>
+<span class="line">وطريقة سكوتك لما يكون جواكي كلام كتير</span>
+<span class="line">بحب إن وجودك مش محتاج مناسبة</span>
+<span class="line">ولا محتاج يوم معين عشان يبقى جميل</span>
+<span class="line">بحب الصبح لما يبدأ برسالة منك</span>
+<span class="line">وبحب الليل لما آخر حاجة فيه تكون كلمة حلوة</span>
+<span class="line">بحب إنك ساعات تزعلي من حاجات صغيرة</span>
+<span class="line">وبعدين تضحكي كأن الزعل ماكانش</span>
+<span class="line">بحب إن لكل كلمة منك نبرة مختلفة</span>
+<span class="line">وإني مع الوقت بقيت أعرف الفرق</span>
+<span class="line">بين كلمة عادية، وكلمة وراها إحساس</span>
+<span class="line">وبقيت أعرف لما تكوني محتاجة حد يسمع</span>
+<span class="line">حتى لو ما طلبتيش بشكل واضح</span>
+<span class="line">يمكن الناس تشوف التفاصيل دي عادية</span>
+<span class="line">لكن أنا شايفها أسباب تخلي اليوم أحسن</span>
+<span class="line">لأن الشخص الغالي مش بيتقاس بالمواقف الكبيرة</span>
+<span class="line">بيتقاس بوجوده وقت ما محدش يكون موجود</span>
+<span class="line">وبسؤال بسيط ييجي في وقته بالضبط</span>
+<span class="line">وبضحكة تخلّي الحزن يتأخر شوية</span>
+<span class="line">بحب إنك ساعات تبقي مش فاهمة ليه أنا ساكت</span>
+<span class="line">وبرضه تفضلي موجودة من غير ضغط</span>
+<span class="line">بحب إنك مش دايمًا محتاجة كلام</span>
+<span class="line">وساعات وجودك لوحده بيكون كلام</span>
+<span class="line">بحب ذكرياتنا الصغيرة قبل الكبيرة</span>
+<span class="line">لأن الصغيرة هي اللي بتفضل عايشة في الدماغ</span>
+<span class="line">موقف عابر، كلمة، ضحكة، صورة</span>
+<span class="line">حاجات ماكانش حد متوقع إنها هتفضل</span>
+<span class="line">لكنها فضلت، لأنها اتربطت باسمك</span>
+<span class="line">أنا مش عايز أحفظ لحظات ضخمة وبس</span>
+<span class="line">أنا عايز أفتكر يوم عادي كان فيه صوتك</span>
+<span class="line">وأفتكر قعدة بسيطة اتحكت فيها نكتة</span>
+<span class="line">وأفتكر كلمة قالتها مَلك من غير قصد</span>
+<span class="line">لكن أنا أخدتها معايا لباقي اليوم</span>
+<span class="line">يمكن دي مش حاجات تصلح في قصيدة</span>
+<span class="line">لكنها بالنسبة لي أصل الحكاية</span>
+<span class="line">لأن الحب مش دايمًا ورد وشوارع وأغاني</span>
+<span class="line">الحب ساعات بيكون: خد بالك من نفسك</span>
+<span class="line">وساعات بيكون: وصلت؟</span>
+<span class="line">وساعات بيكون: كلت ولا لسه؟</span>
+<span class="line">وساعات بيكون سكوت، بس مريح</span>
+<span class="line">عشان كده لو سألتني بحب فيكي إيه</span>
+<span class="line">مش هعرف أختار حاجة واحدة</span>
+<span class="line">هقولك بحب التفاصيل كلها</span>
+<span class="line">حتى التفاصيل اللي إنتي مش شايفاها مهمة</span>
+<span class="line">لأنها لما اجتمعت مع بعض</span>
+<span class="line">خلت مَلك بالنسبة لي مش مجرد اسم</span>
+<span class="line">خلتها حكاية كاملة من التفاصيل</span>
+
+    </div>
+
+    <div class="poem-tools">
+      <button class="small-btn" onclick="copyPoem('text2')">⧉ نسخ القصيدة</button>
+      <button class="small-btn" onclick="increaseFont(this)">A+ تكبير</button>
+      <button class="small-btn" onclick="decreaseFont(this)">A− تصغير</button>
+      <button class="small-btn" onclick="sharePoem('تفاصيلك الصغيرة')">↗ مشاركة</button>
+    </div>
+
+  </div>
+
+  <div class="analysis">
+
+    <div class="analysis-grid">
+
+      <div class="analysis-box">
+        <h4>نبذة</h4>
+        <p>
+          القصيدة تركز على التفاصيل اليومية بدلًا من المبالغات الرومانسية،
+          وتوضح كيف يمكن لسؤال بسيط أو كلمة عابرة أن تصبح مهمة جدًا.
+        </p>
+      </div>
+
+      <div class="analysis-box">
+        <h4>الهدف</h4>
+        <p>
+          التأكيد أن قيمة العلاقات تظهر في التفاصيل الصغيرة والاهتمام
+          اليومي، وليس فقط في اللحظات الكبيرة.
+        </p>
+      </div>
+
+      <div class="analysis-box">
+        <h4>الأسلوب</h4>
+        <p>
+          الأسلوب قريب من الكلام الطبيعي، مع تكرار عبارة «بحب»
+          لإعطاء القصيدة إيقاعًا داخليًا وربط الأبيات بالفكرة الأساسية.
+        </p>
+      </div>
+
+      <div class="analysis-box">
+        <h4>الصورة الفنية</h4>
+        <p>
+          تعتمد الصور على الحياة اليومية، مما يجعل المشاعر أقرب للقارئ
+          وأقل افتعالًا وأكثر صدقًا.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+<!-- POEM 3 -->
+<article class="poem-card" id="poem3">
+
+  <div class="poem-head">
+
+    <div class="poem-head-top">
+      <div>
+        <div class="poem-kicker">القصيدة الثالثة · الخوف</div>
+        <h3 class="poem-title">خايف أخسر الحكاية</h3>
+        <p class="poem-subtitle">
+          عندما يصبح الشيء الجميل غاليًا، يظهر الخوف من أن نفقده.
+        </p>
+      </div>
+
+      <button class="favorite" data-fav="poem3">♡</button>
+    </div>
+
+    <div class="poem-info">
+      <div class="info">
+        <span>الفكرة</span>
+        <strong>الخوف على الحكاية</strong>
+      </div>
+      <div class="info">
+        <span>المشاعر</span>
+        <strong>قلق · تمسك · أمل</strong>
+      </div>
+      <div class="info">
+        <span>الهدف</span>
+        <strong>الحفاظ على الجميل</strong>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="poem-body">
+
+    <div class="poem-text" id="text3">
+
+<span class="line">أنا مش خايف من بكرة قد ما خايف على اللي بينا</span>
+<span class="line">خايف يوم يعدي وننسى قد إيه كانت جميلة أيامنا</span>
+<span class="line">خايف الزحمة تاخد مننا وقت كنا بنستناه</span>
+<span class="line">وخايف المسافات تعمل بين القلوب ألف حكاية</span>
+<span class="line">مش عايز يوم نوصل فيه لبعض ونقول: فات</span>
+<span class="line">ولا عايز الذكرى تبقى صورة وخلاص</span>
+<span class="line">أنا عايز الحكاية تفضل عايشة جوانا</span>
+<span class="line">حتى لو الدنيا غيرت شكل الأيام</span>
+<span class="line">خايف أخسر الضحكة اللي بتصلح يومي</span>
+<span class="line">وخايف أخسر صوت بيطمن قلبي لما يتعب</span>
+<span class="line">خايف من سوء فهم يكبر من كلمة صغيرة</span>
+<span class="line">ومن سكوت يطول لأن محدش قال اللي جواه</span>
+<span class="line">وعشان كده أنا عايز دايمًا أقول الحقيقة</span>
+<span class="line">إن وجودك بالنسبة لي مش حاجة عادية</span>
+<span class="line">وإن مَلك لما بقت قريبة من قلبي</span>
+<span class="line">بقى عندي حاجة أخاف عليها</span>
+<span class="line">مش خوف يقي
