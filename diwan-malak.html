@@ -333,12 +333,14 @@ font-size:21px;
 }
 .item h3{font-family:Amiri,serif;font-size:23px}
 .item p{font-size:12px;color:var(--muted)}
-.item button{
+.item button, .item a.btn-link{
 padding:9px 14px;
 border:1px solid var(--line);
 background:var(--bg2);
 color:var(--gold2);
 border-radius:12px;
+display:inline-block;
+text-align:center;
 }
 
 /* POEM */
@@ -597,7 +599,7 @@ padding:0 12px;
 .item{
 grid-template-columns:52px 1fr;
 }
-.item button{
+.item button, .item a.btn-link{
 grid-column:1/-1;
 width:100%;
 }
@@ -655,7 +657,7 @@ padding:20px 14px;
 
 <div class="heroContent">
 
-<div class="badge">✦ الديوان الأول · ١٥ قصيدة · ٧٥٠ سطر</div>
+<div class="badge">✦ الديوان الأول · ١٦ قصيدة · ٨٠٠ سطر</div>
 
 <h1>مَلك</h1>
 <h2>أحببتُ الملك</h2>
@@ -679,9 +681,9 @@ padding:20px 14px;
 
 
 <div class="stats">
-<div class="stat"><b>15</b><span>قصيدة</span></div>
-<div class="stat"><b>750</b><span>سطر شعري</span></div>
-<div class="stat"><b>15</b><span>نَفَس موسيقي</span></div>
+<div class="stat"><b>16</b><span>قصيدة</span></div>
+<div class="stat"><b>800</b><span>سطر شعري</span></div>
+<div class="stat"><b>16</b><span>نَفَس موسيقي</span></div>
 <div class="stat"><b>∞</b><span>تفاصيل وحكايات</span></div>
 </div>
 
@@ -720,7 +722,7 @@ padding:20px 14px;
 <div class="head">
 <small>THE INDEX</small>
 <h2>فهرس الديوان</h2>
-<p>خمستاشر محطة في حكاية واحدة.</p>
+<p>ستة عشر محطة في حكاية واحدة.</p>
 </div>
 
 <div class="control">
@@ -790,6 +792,78 @@ padding:20px 14px;
 ========================================================== */
 
 const poems = [
+
+{
+id:0,
+title:"حين مرّ اسمك",
+topic:"الحضور والشعور",
+tags:["حب","ذكرى"],
+maqam:"بياتي",
+bpm:70,
+desc:"حين مرّ اسمك في الكلام كأنه... شيء من النور استراح ببهجتي.",
+purpose:"التعبير عن الأثر اللطيف العاطفي لرؤية أو سماع الاسم فجأة.",
+rhyme:"ـتي",
+text:`
+حين مرّ اسمك في الكلام كأنه
+شيء من النور استراح ببهجتي
+فتوقفت كل الحروف مهابةً
+وتوردت بالحب كل مخيلتي
+ما كنت أعلم أن روعة أرقر
+تنساب كالماء العذب في مهجتي
+حتى التقيتك فاستعادت روحي
+نغماً قديمًا غاب عن أغنيتي
+يا ملاكاً طال الإنتظار لقربه
+أنت السكون إذا تزايد حيرتي
+كالورد حين يطل في فجر الندى
+ويعيد للدنيا طهارة نظرتي
+اسمك إذا مر الشفاه زادت حلاوة
+وتغيرت في لحظة أزمنتي
+يسري كعطر الورد في حاراتنا
+ويرش بالدفء البهيج برودتي
+لم أدر كيف دخلت قلبي هكذا
+من دون إذن أو سابق علمِ
+لكنك أصبحت أصل حكايتي
+وعنوان كلماتي وأسرار بيتي
+أنا كلما حاولت وصفك ألعثمت
+كل اللغات وعجزت عباراتي
+فالجمال في عينيك ليس مصادفاً
+بل سر إلهي أنار مسيرتي
+يا بؤرة الضوء الحنون بعالمي
+يا من ملكت مقالتي وإدارتي
+لو كان لي أن أستعيد معاركي
+لاخترت حبك كي يكون معركتي
+فيه النجاة وفيه أجمل غاية
+وفيه تحلو بالوفاء مسيرتي
+اسمك يسير مع الدماء بنبضها
+ويعيد ترطيب الجفاف بساحتي
+مهما ابتعدت ففي خيالي صورة
+تنسيك أوجاع الحياة وبصمتي
+حين مر اسمك أشرقت كل السطور
+وابتسمت الأوراق تحت ريشتي
+أدركت أني قد عرفت ملاكيا
+وأن أصدق ما كتبت قصيدتي
+حين مر اسمك سكت الكلام جميعه
+وبدأت أستمع لنبض أوردتي
+فكأنما الدنيا تختصرت هنا
+في أربع من أحرف في مهجتي
+مَلك... وفي هذا الاسم سر آسر
+يبقي العبير يعيش بين أسرّتي
+سأظل أذكر كيف مر بأضلعي
+وكيف أحيا بالحنان سريرتي
+هو ليس مجرد حرف في دفتر
+بل إنه النبض الذي في أوردتي
+كل القصائد تستمد ضياءها
+من حسن من أهدت لإيماءتي
+فتقبلي مني الوفاء فإنني
+أخلصت في حبي وفي ألميت
+يا أجمل الأسماء في لغتي التي
+صارت لعينيك تحب لغتي
+سأقولها للكون إنك منيتي
+وإن اسمك الميمون سر مسرتي
+حين مر اسمك أصبحت أوقاتي
+أحلى وأجمل في سجل سنيني
+`
+},
 
 {
 id:1,
@@ -1896,7 +1970,7 @@ function renderIndex(){
 
   indexList.innerHTML="";
 
-  poems.forEach(p=>{
+  poems.forEach((p, index)=>{
 
     const hay=
       (
@@ -1919,16 +1993,16 @@ function renderIndex(){
     el.className="item";
 
     el.innerHTML=`
-      <div class="num">${String(p.id).padStart(2,"0")}</div>
+      <div class="num">${String(index+1).padStart(2,"0")}</div>
 
       <div>
         <h3>${p.title}</h3>
         <p>${p.desc} · 50 سطر · مقام ${p.maqam}</p>
       </div>
 
-      <button onclick="goPoem(${p.id})">
-        قراءة القصيدة
-      </button>
+      <a href="poem.html?id=${p.id}" class="btn-link">
+        ← قراءة القصيدة
+      </a>
     `;
 
     indexList.appendChild(el);
@@ -1964,7 +2038,7 @@ function renderPoems(){
 
   poemsContainer.innerHTML="";
 
-  poems.forEach(p=>{
+  poems.forEach((p, index)=>{
 
     const article=document.createElement("article");
 
@@ -1980,7 +2054,7 @@ function renderPoems(){
           <div>
 
             <div class="kicker">
-              القصيدة ${String(p.id).padStart(2,"0")}
+              القصيدة ${String(index+1).padStart(2,"0")}
               · ${p.topic}
             </div>
 
@@ -2036,9 +2110,7 @@ function renderPoems(){
           ${p.lines.map((line,i)=>`
             <span class="line">
               <span class="lineNo">
-                ${i+1}
-              </span>
-              ${line}
+                ${i+1}               </span>${line}
             </span>
           `).join("")}
 
@@ -2046,6 +2118,14 @@ function renderPoems(){
 
 
         <div class="tools">
+
+          <a
+            class="tool"
+            style="color: var(--gold2); font-weight: bold;"
+            href="poem.html?id=${p.id}"
+          >
+            ← قراءة القصيدة كاملة
+          </a>
 
           <button
             class="tool"
@@ -2189,7 +2269,7 @@ function loadFavorites(){
   document.querySelectorAll(".heart")
   .forEach((button,index)=>{
 
-    const id=index+1;
+    const id=poems[index].id;
 
     if(localStorage.getItem("malak_fav_"+id)==="1"){
       button.textContent="♥";
@@ -2583,7 +2663,7 @@ function toggleMusic(){
 
   if(!currentPoem){
 
-    startMusic(1);
+    startMusic(0);
 
     return;
 
@@ -2790,4 +2870,4 @@ window.addEventListener("scroll",()=>{
 </script>
 
 </body>
-   </html>
+</html>
