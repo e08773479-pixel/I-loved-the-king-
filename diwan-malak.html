@@ -333,14 +333,12 @@ font-size:21px;
 }
 .item h3{font-family:Amiri,serif;font-size:23px}
 .item p{font-size:12px;color:var(--muted)}
-.item button, .item a.btn-link{
+.item button{
 padding:9px 14px;
 border:1px solid var(--line);
 background:var(--bg2);
 color:var(--gold2);
 border-radius:12px;
-display:inline-block;
-text-align:center;
 }
 
 /* POEM */
@@ -599,7 +597,7 @@ padding:0 12px;
 .item{
 grid-template-columns:52px 1fr;
 }
-.item button, .item a.btn-link{
+.item button{
 grid-column:1/-1;
 width:100%;
 }
@@ -1871,7 +1869,7 @@ text:`
 أنا كتبت اللي قدرت، وسيبت الباقي للوقت
 وسيبت بين السطور مساحة لحاجات جاية
 يمكن القصيدة تخلص هنا
-لكن الذكرى لسه عندها ألف رواية
+لكن الذكرى لسه عنده ألف رواية
 لسه في يوم جديد
 ولسه في كلمة
 ولسه في ضحكة
@@ -2000,9 +1998,9 @@ function renderIndex(){
         <p>${p.desc} · 50 سطر · مقام ${p.maqam}</p>
       </div>
 
-      <a href="poem.html?id=${p.id}" class="btn-link">
+      <button onclick="goPoem(${p.id})">
         ← قراءة القصيدة
-      </a>
+      </button>
     `;
 
     indexList.appendChild(el);
@@ -2118,14 +2116,6 @@ function renderPoems(){
 
 
         <div class="tools">
-
-          <a
-            class="tool"
-            style="color: var(--gold2); font-weight: bold;"
-            href="poem.html?id=${p.id}"
-          >
-            ← قراءة القصيدة كاملة
-          </a>
 
           <button
             class="tool"
