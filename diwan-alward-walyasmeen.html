@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#080912">
+<meta name="description" content="ديوان الورد والياسمين — من منصة أحببتُ الملك">
+<title>ديوان الورد والياسمين | أحببتُ الملك</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#070811;
+  --bg2:#0c0e19;
+  --panel:#101321;
+  --panel2:#151827;
+  --line:rgba(255,255,255,.08);
+  --text:#f6f4fa;
+  --muted:#a9adbd;
+  --pink:#e875a5;
+  --pink2:#ff9bc1;
+  --purple:#8e78ff;
+  --blue:#62a7ff;
+  --green:#63d7ad;
+  --danger:#ff6688;
+  --shadow:0 25px 80px rgba(0,0,0,.42);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 15% 10%,rgba(232,117,165,.13),transparent 28%),
+    radial-gradient(circle at 85% 20%,rgba(98,167,255,.10),transparent 25%),
+    radial-gradient(circle at 50% 100%,rgba(142,120,255,.10),transparent 35%),
+    var(--bg);
+  color:var(--text);
+  font-family:"Cairo",sans-serif;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.35;
+  background-image:
+    radial-gradient(circle at 20% 30%,#fff 0 1px,transparent 1.5px),
+    radial-gradient(circle at 70% 15%,#fff 0 1px,transparent 1.5px),
+    radial-gradient(circle at 40% 75%,#fff 0 1px,transparent 1.5px),
+    radial-gradient(circle at 90% 65%,#fff 0 1px,transparent 1.5px);
+  background-size:220px 220px,300px 300px,260px 260px,340px 340px;
+  z-index:-1;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input,
+textarea{
+  font-family:inherit;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+}
+
+.top-line{
+  height:3px;
+  background:linear-gradient(90deg,
+    var(--purple),
+    var(--pink),
+    var(--blue),
+    var(--green),
+    var(--purple)
+  );
+  background-size:300% 100%;
+  animation:lineMove 8s linear infinite;
+}
+
+@keyframes lineMove{
+  from{background-position:0 0}
+  to{background-position:300% 0}
+}
+
+/* NAV */
+
+.nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:0 5%;
+  background:rgba(7,8,17,.78);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:max-content;
+}
+
+.brand-icon{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  background:
+    linear-gradient(135deg,rgba(232,117,165,.25),rgba(142,120,255,.18));
+  border:1px solid rgba(232,117,165,.25);
+  box-shadow:0 0 35px rgba(232,117,165,.12);
+  font-size:22px;
+}
+
+.brand-text strong{
+  display:block;
+  font-family:"Amiri",serif;
+  font-size:22px;
+}
+
+.brand-text span{
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:1px;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.nav-links a{
+  padding:10px 14px;
+  border-radius:12px;
+  color:#c9cad4;
+  font-size:13px;
+  transition:.25s;
+}
+
+.nav-links a:hover{
+  color:#fff;
+  background:rgba(255,255,255,.06);
+}
+
+.nav-back{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:10px 15px;
+  border-radius:12px;
+  color:#fff;
+  background:linear-gradient(135deg,rgba(232,117,165,.16),rgba(142,120,255,.14));
+  border:1px solid rgba(255,255,255,.08);
+}
+
+/* HERO */
+
+.hero{
+  width:min(1200px,92%);
+  margin:45px auto 0;
+  min-height:550px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:38px;
+  background:
+    linear-gradient(180deg,rgba(8,9,18,.20),rgba(8,9,18,.92)),
+    url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+  box-shadow:var(--shadow);
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:520px;
+  height:520px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:
+    0 0 0 70px rgba(232,117,165,.015),
+    0 0 0 140px rgba(142,120,255,.012);
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at center,transparent 0 25%,rgba(5,6,13,.35) 70%),
+    linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.6));
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  width:min(850px,90%);
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:8px 14px;
+  border-radius:999px;
+  color:#e8dce5;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.1);
+  font-size:12px;
+  margin-bottom:20px;
+}
+
+.eyebrow i{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--pink);
+  box-shadow:0 0 14px var(--pink);
+}
+
+.hero h1{
+  font-family:"Amiri",serif;
+  font-size:clamp(48px,8vw,96px);
+  line-height:1;
+  margin-bottom:18px;
+  text-shadow:0 10px 50px rgba(0,0,0,.6);
+}
+
+.hero h1 span{
+  background:linear-gradient(90deg,#fff,var(--pink2),#d9d4ff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  color:#d1d0d8;
+  font-size:16px;
+  line-height:2;
+  max-width:720px;
+  margin:auto;
+}
+
+.hero-actions{
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:46px;
+  padding:0 20px;
+  border-radius:14px;
+  transition:.25s;
+  font-size:13px;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.btn-primary{
+  color:#fff;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  box-shadow:0 12px 35px rgba(232,117,165,.18);
+}
+
+.btn-soft{
+  color:#ddd;
+  background:rgba(255,255,255,.07);
+  border:1px solid var(--line);
+}
+
+/* STATS */
+
+.stats{
+  width:min(1000px,90%);
+  margin:25px auto 0;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.stat{
+  padding:20px;
+  text-align:center;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:rgba(16,19,33,.72);
+  backdrop-filter:blur(15px);
+}
+
+.stat strong{
+  display:block;
+  font-size:25px;
+  margin-bottom:3px;
+}
+
+.stat span{
+  color:var(--muted);
+  font-size:11px;
+}
+
+/* SECTION */
+
+.section{
+  width:min(1200px,92%);
+  margin:80px auto;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:20px;
+  margin-bottom:25px;
+}
+
+.section-title small{
+  color:var(--pink2);
+  font-size:11px;
+  letter-spacing:1px;
+}
+
+.section-title h2{
+  font-family:"Amiri",serif;
+  font-size:40px;
+  line-height:1.2;
+  margin-top:5px;
+}
+
+.section-title p{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:8px;
+}
+
+/* SEARCH */
+
+.search-box{
+  position:relative;
+  margin-bottom:22px;
+}
+
+.search-box input{
+  width:100%;
+  height:58px;
+  padding:0 52px 0 20px;
+  border-radius:17px;
+  outline:none;
+  border:1px solid var(--line);
+  color:#fff;
+  background:rgba(16,19,33,.9);
+  font-size:14px;
+  transition:.25s;
+}
+
+.search-box input:focus{
+  border-color:rgba(232,117,165,.45);
+  box-shadow:0 0 0 4px rgba(232,117,165,.06);
+}
+
+.search-icon{
+  position:absolute;
+  right:18px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--pink2);
+  font-size:20px;
+}
+
+/* FILTERS */
+
+.filters{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:28px;
+}
+
+.filter{
+  padding:10px 15px;
+  border-radius:12px;
+  color:#aaaebb;
+  background:rgba(255,255,255,.045);
+  border:1px solid var(--line);
+  transition:.2s;
+}
+
+.filter.active,
+.filter:hover{
+  color:#fff;
+  background:rgba(232,117,165,.13);
+  border-color:rgba(232,117,165,.28);
+}
+
+/* CARDS */
+
+.poems-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.poem-card{
+  position:relative;
+  min-height:310px;
+  overflow:hidden;
+  border-radius:25px;
+  border:1px solid var(--line);
+  background:#111421;
+  cursor:pointer;
+  transition:.35s;
+}
+
+.poem-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(232,117,165,.25);
+  box-shadow:0 25px 60px rgba(0,0,0,.3);
+}
+
+.poem-cover{
+  position:absolute;
+  inset:0;
+  background-position:center;
+  background-size:cover;
+  transition:.5s;
+}
+
+.poem-card:hover .poem-cover{
+  transform:scale(1.06);
+}
+
+.poem-cover::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg,rgba(5,6,13,.04),rgba(5,6,13,.95) 92%);
+}
+
+.poem-info{
+  position:absolute;
+  inset:auto 0 0;
+  z-index:2;
+  padding:25px;
+}
+
+.poem-number{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;
+  height:34px;
+  border-radius:10px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.1);
+  color:#fff;
+  font-size:11px;
+  margin-bottom:13px;
+}
+
+.poem-info h3{
+  font-family:"Amiri",serif;
+  font-size:29px;
+  margin-bottom:7px;
+}
+
+.poem-info p{
+  color:#c0c1ca;
+  font-size:12px;
+  line-height:1.9;
+  max-width:600px;
+}
+
+.poem-meta{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:13px;
+}
+
+.meta{
+  color:#c7c8d2;
+  font-size:10px;
+  padding:6px 9px;
+  border-radius:9px;
+  background:rgba(255,255,255,.06);
+}
+
+/* AUTHOR */
+
+.author-box{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  gap:28px;
+  padding:35px;
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(232,117,165,.1),transparent 30%),
+    rgba(16,19,33,.85);
+  border:1px solid var(--line);
+}
+
+.author-avatar{
+  width:150px;
+  height:150px;
+  border-radius:30px;
+  display:grid;
+  place-items:center;
+  font-family:"Amiri",serif;
+  font-size:55px;
+  background:
+    linear-gradient(135deg,rgba(232,117,165,.18),rgba(142,120,255,.2));
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.author-box h2{
+  font-family:"Amiri",serif;
+  font-size:34px;
+  margin-bottom:8px;
+}
+
+.author-box p{
+  color:#b9bbc7;
+  line-height:2.1;
+  font-size:14px;
+}
+
+/* FOOTER */
+
+footer{
+  width:min(1200px,92%);
+  margin:80px auto 30px;
+  padding-top:25px;
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  color:#777b8c;
+  font-size:11px;
+}
+
+/* READER */
+
+.reader{
+  position:fixed;
+  inset:0;
+  z-index:3000;
+  display:none;
+  background:rgba(3,4,9,.82);
+  backdrop-filter:blur(22px);
+  overflow-y:auto;
+  padding:40px 15px;
+}
+
+.reader.show{
+  display:block;
+  animation:fadeIn .25s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+.reader-box{
+  width:min(900px,100%);
+  margin:auto;
+  border-radius:30px;
+  border:1px solid var(--line);
+  background:
+    radial-gradient(circle at 90% 0,rgba(232,117,165,.08),transparent 25%),
+    #0d101c;
+  box-shadow:0 40px 120px rgba(0,0,0,.65);
+  overflow:hidden;
+}
+
+.reader-head{
+  padding:25px;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:start;
+  border-bottom:1px solid var(--line);
+}
+
+.reader-title small{
+  color:var(--pink2);
+  font-size:10px;
+}
+
+.reader-title h2{
+  font-family:"Amiri",serif;
+  font-size:40px;
+  margin-top:5px;
+}
+
+.reader-actions{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.icon-btn{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  color:#cdd0dc;
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--line);
+  transition:.2s;
+}
+
+.icon-btn:hover{
+  color:#fff;
+  background:rgba(232,117,165,.12);
+}
+
+.icon-btn.active{
+  color:var(--pink2);
+  border-color:rgba(232,117,165,.3);
+}
+
+.reader-body{
+  padding:35px 30px 45px;
+}
+
+.poem-purpose{
+  margin-bottom:30px;
+  padding:20px;
+  border-radius:18px;
+  background:rgba(255,255,255,.035);
+  border:1px solid var(--line);
+}
+
+.poem-purpose strong{
+  display:block;
+  color:var(--pink2);
+  margin-bottom:7px;
+}
+
+.poem-purpose p{
+  color:#b9bbc7;
+  line-height:2;
+  font-size:13px;
+}
+
+.poem-text{
+  font-family:"Amiri",serif;
+  font-size:23px;
+  line-height:2.25;
+  text-align:center;
+}
+
+.poem-text .line{
+  display:block;
+  transition:.2s;
+}
+
+.poem-text .line:hover{
+  color:var(--pink2);
+}
+
+.reader-footer{
+  padding:18px 25px;
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.reader-nav{
+  display:flex;
+  gap:8px;
+}
+
+.note-area{
+  display:none;
+  margin-top:20px;
+}
+
+.note-area.show{
+  display:block;
+}
+
+.note-area textarea{
+  width:100%;
+  min-height:120px;
+  resize:vertical;
+  padding:15px;
+  color:#fff;
+  background:#090b13;
+  border:1px solid var(--line);
+  border-radius:15px;
+  outline:none;
+}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translate(-50%,30px);
+  opacity:0;
+  z-index:5000;
+  padding:12px 18px;
+  border-radius:13px;
+  background:#171a28;
+  color:#fff;
+  border:1px solid var(--line);
+  box-shadow:0 15px 50px rgba(0,0,0,.4);
+  font-size:12px;
+  pointer-events:none;
+  transition:.3s;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+/* EMPTY */
+
+.empty{
+  display:none;
+  text-align:center;
+  padding:70px 20px;
+  border:1px dashed var(--line);
+  border-radius:25px;
+  color:var(--muted);
+}
+
+.empty.show{
+  display:block;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+  .nav{
+    height:auto;
+    min-height:65px;
+    padding:10px 4%;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero{
+    min-height:520px;
+    border-radius:28px;
+  }
+
+  .hero h1{
+    font-size:54px;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .poems-grid{
+    grid-template-columns:1fr;
+  }
+
+  .section{
+    margin:60px auto;
+  }
+
+  .section-head{
+    display:block;
+  }
+
+  .author-box{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .author-avatar{
+    margin:auto;
+  }
+
+  .reader{
+    padding:10px;
+  }
+
+  .reader-head{
+    display:block;
+  }
+
+  .reader-actions{
+    justify-content:flex-start;
+    margin-top:15px;
+  }
+
+  .reader-title h2{
+    font-size:32px;
+  }
+
+  .reader-body{
+    padding:25px 17px 35px;
+  }
+
+  .poem-text{
+    font-size:20px;
+    line-height:2.2;
+  }
+
+  footer{
+    display:block;
+    text-align:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-line"></div>
+
+<nav class="nav">
+  <a href="index.html" class="brand">
+    <div class="brand-icon">🌿</div>
+    <div class="brand-text">
+      <strong>أحببتُ الملك</strong>
+      <span>ديوان الورد والياسمين</span>
+    </div>
+  </a>
+
+  <div class="nav-links">
+    <a href="#poems">القصائد</a>
+    <a href="#about">عن الديوان</a>
+    <a href="#author">الشاعر</a>
+  </div>
+
+  <a href="index.html" class="nav-back">← المنصة</a>
+</nav>
+
+<main>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">
+      <i></i>
+      الديوان الثاني من منصة أحببتُ الملك
+    </div>
+
+    <h1>
+      ديوان <span>الورد والياسمين</span>
+    </h1>
+
+    <p>
+      ليس كل وردٍ حكايةَ حب، وليس كل ياسمينٍ اسمَ امرأة.
+      هنا أكتب عن الإنسان حين يتأمل أيامه، وعن الوقت حين يترك أثره،
+      وعن المحاولة حين تكون أصعب من الوصول، وعن الأشياء الصغيرة
+      التي تمر بنا ثم تظل في الذاكرة.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#poems" class="btn btn-primary">📖 ابدأ القراءة</a>
+      <a href="#about" class="btn btn-soft">✦ عن الديوان</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat">
+    <strong>10</strong>
+    <span>قصائد</span>
+  </div>
+
+  <div class="stat">
+    <strong>500+</strong>
+    <span>سطر شعري</span>
+  </div>
+
+  <div class="stat">
+    <strong>∞</strong>
+    <span>أثر لا ينتهي</span>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-head">
+    <div class="section-title">
+      <small>ABOUT THE DIWAN</small>
+      <h2>لماذا الورد والياسمين؟</h2>
+      <p>
+        لأن الجمال لا يسكن في الحب وحده؛ بل في الحياة بكل ما فيها.
+      </p>
+    </div>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">🌿</div>
+
+    <div>
+      <h2>بين الرائحة والمعنى</h2>
+
+      <p>
+        جاء اسم الديوان من صورة بسيطة: وردة قد يراها شخص فيتذكر إنسانًا،
+        وقد يراها آخر فيتذكر بيتًا قديمًا، وقد يراها ثالث فيتذكر صباحًا
+        لم يعرف قيمته إلا بعد أن مضى.
+      </p>
+
+      <p style="margin-top:12px">
+        لذلك لا يحاول هذا الديوان أن يحصر الياسمين في قصة واحدة،
+        ولا أن يجعل الورد مرادفًا للحب فقط. هنا مساحة للوقت،
+        والتجربة، والتعليم، والناس، والصبر، والاختيارات،
+        والأحلام التي تحتاج إلى سنوات حتى تصل إلى شكلها الحقيقي.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="poems">
+
+  <div class="section-head">
+    <div class="section-title">
+      <small>THE COLLECTION</small>
+      <h2>قصائد الديوان</h2>
+      <p>اختر قصيدة، وافتحها كاملة.</p>
+    </div>
+  </div>
+
+  <div class="search-box">
+    <span class="search-icon">⌕</span>
+    <input
+      id="searchInput"
+      type="search"
+      placeholder="ابحث باسم القصيدة أو بكلمة من معناها..."
+      autocomplete="off"
+    >
+  </div>
+
+  <div class="filters">
+    <button class="filter active" data-filter="all">كل القصائد</button>
+    <button class="filter" data-filter="favorite">المفضلة</button>
+  </div>
+
+  <div class="poems-grid" id="poemsGrid">
+
+    <article class="poem-card" data-id="1" data-title="ورق ياسمين">
+      <div class="poem-cover"
+        style="background-image:url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1200&q=85')">
+      </div>
+
+      <div class="poem-info">
+        <div class="poem-number">01</div>
+        <h3>ورق ياسمين</h3>
+        <p>
+          قصيدة عن سوء فهم الكلمات، وعن اسمٍ ظنته صاحبته اعترافًا،
+          بينما كان الياسمين عند الشاعر أوسع من اسمٍ واحد.
+        </p>
+
+        <div class="poem-meta">
+          <span class="meta">تأمل</span>
+          <span class="meta">ذاكرة</span>
+          <span class="meta">50+ سطر</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="poem-card" data-id="2" data-title="حين يخطئ الناس قراءة الكلام">
+      <div class="poem-cover"
+        style="background-image:url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=85')">
+      </div>
+
+      <div class="poem-info">
+        <div class="poem-number">02</div>
+        <h3>حين يخطئ الناس قراءة الكلام</h3>
+        <p>
+          عن الكلمات التي تصل إلى الآخرين بغير المعنى الذي خرجت به،
+          وعن المسافة بين ما نكتبه وما يفهمه القارئ.
+        </p>
+
+        <div class="poem-meta">
+          <span class="meta">لغة</span>
+          <span class="meta">تأمل</span>
+          <span class="meta">50+ سطر</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="poem-card" data-id="3" data-title="أثر لا يسمى">
+      <div class="poem-cover"
+        style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85')">
+      </div>
+
+      <div class="poem-info">
+        <div class="poem-number">03</div>
+        <h3>أثر لا يُسمّى</h3>
+        <p>
+          عن الأشياء التي لا نعرف لها اسمًا واضحًا،
+          لكننا نشعر بوجودها كلما عدنا إلى ذاكرتنا.
+        </p>
+
+        <div class="poem-meta">
+          <span class="meta">ذاكرة</span>
+          <span class="meta">إنسان</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="poem-card" data-id="4" data-title="على هامش الأيام">
+      <div class="poem-cover"
+        style="background-image:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=85')">
+      </div>
+
+      <div class="poem-info">
+        <div class="poem-number">04</div>
+        <h3>على هامش الأيام</h3>
+        <p>
+          عن الوقت، وما يمر بنا دون أن ننتبه،
+          ثم نكتشف بعد سنوات أنه كان يصنعنا.
+        </p>
+
+        <div class="poem-meta">
+          <span class="meta">الوقت</span>
+          <span class="meta">حياة</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="poem-card" data-id="5" data-title="ما بين خطوتين">
+      <div class="poem-cover"
+        style="background-image:url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85')">
+      </div>
+
+      <div class="poem-info">
+        <div class="poem-number">05</div>
+        <h3>ما بين خطوتين</h3>
+        <p>
+          عن القرار الذي يفصل بين طريقين،
+          وعن الشجاعة التي يحتاجها الإنسان ليختار.
+        </p>
+
+        <div class="poem-meta">
+          <span class="meta">اختيار</span>
+          <span class="meta">شجاعة</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="poem-card" data-id="6" data-title="الذين يحاولون">
+      <div class="poem-cover"
+        style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=85')">
+      </div>
+
+      <div class="poem-info">
+        <div class="poem-number">06</div>
+        <h3>الذين يحاولون</h3>
+        <p>
+          إلى الذين لا يملكون ضمانًا للنجاح،
+          لكنهم يملكون شجاعة البدء من جديد.
+        </p>
+
+        <div class="poem-meta">
+          <span class="meta">إصرار</span>
+          <span class="meta">حلم</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="poem-card" data-id="7" data-title="صوت الصباح">
+      <div class="poem-cover"
+        style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=85')">
+      </div>
+
+      <div class="poem-info">
+        <div class="poem-number">07</div>
+        <h3>صوت الصباح</h3>
+        <p>
+          عن البدايات الجديدة، وعن اليوم الذي يمنحنا فرصة أخرى.
+        </p>
+
+        <div class="poem-meta">
+          <span class="meta">بداية</span>
+          <span class="meta">أمل</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="poem-card" data-id="8" data-title="أثر المعلم">
+      <div class="poem-cover"
+        style="background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=85')">
+      </div>
+
+      <div class="poem-info">
+        <div class="poem-number">08</div>
+        <h3>أثر المعلم</h3>
+        <p>
+          عن أثر من يفتح للإنسان باب العلم،
+          وعن كلمة قد تبقى معنا أطول من صاحبها.
+        </p>
+
+        <div class="poem-meta">
+          <span class="meta">علم</span>
+          <span class="meta">امتنان</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="poem-card" data-id="9" data-title="وجه المدينة">
+      <div class="poem-cover"
+        style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1200&q=85')">
+      </div>
+
+      <div class="poem-info">
+        <div class="poem-number">09</div>
+        <h3>وجه المدينة</h3>
+        <p>
+          عن الناس الذين نراهم كل يوم،
+          وعن الحكايات التي تخفيها الوجوه العابرة.
+        </p>
+
+        <div class="poem-meta">
+          <span class="meta">ناس</span>
+          <span class="meta">مدينة</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="poem-card" data-id="10" data-title="آخر الصفحة">
+      <div class="poem-cover"
+        style="background-image:url('https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1200&q=85')">
+      </div>
+
+      <div class="poem-info">
+        <div class="poem-number">10</div>
+        <h3>آخر الصفحة</h3>
+        <p>
+          خاتمة الديوان، وفيها يعود الشاعر إلى الفكرة الأولى:
+          أن الكتابة أكبر من اسم، وأوسع من حكاية واحدة.
+        </p>
+
+        <div class="poem-meta">
+          <span class="meta">ختام</span>
+          <span class="meta">كتابة</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="empty" id="emptyState">
+    <div style="font-size:35px;margin-bottom:10px">🌿</div>
+    لا توجد قصيدة تطابق بحثك.
+  </div>
+
+</section>
+
+<section class="section" id="author">
+
+  <div class="section-head">
+    <div class="section-title">
+      <small>THE WRITER</small>
+      <h2>عن الشاعر</h2>
+    </div>
+  </div>
+
+  <div class="author-box">
+
+    <div class="author-avatar">يوسف</div>
+
+    <div>
+      <h2>يوسف أشرف الجرف</h2>
+
+      <p>
+        طالب في تالتة ثانوي، أكتب الشعر وأبرمج في الوقت نفسه.
+        بدأت الكتابة من إحساس وتجارب صغيرة، ثم اتسعت عندي الفكرة:
+        أن القصيدة ليست مجرد حكاية حب، وإنما طريقة لفهم الإنسان
+        والوقت والناس والحلم والأشياء التي نمر بها.
+      </p>
+
+      <p style="margin-top:12px">
+        بين المذاكرة والبرمجة والكتابة أحاول أن أبني شيئًا أفتخر به،
+        وحلمي أن أحقق مجموعًا كبيرًا وأدخل هندسة.
+        وهذا الديوان جزء من محاولة أن أجعل للكلمات مكانًا يشبهني.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div>© 2026 أحببتُ الملك — ديوان الورد والياسمين</div>
+  <div>يوسف أشرف الجرف • شعر وكتابة وبرمجة</div>
+</footer>
+
+<!-- READER -->
+
+<div class="reader" id="reader">
+
+  <div class="reader-box">
+
+    <div class="reader-head">
+
+      <div class="reader-title">
+        <small id="readerNumber">القصيدة</small>
+        <h2 id="readerTitle">ورق ياسمين</h2>
+      </div>
+
+      <div class="reader-actions">
+
+        <button class="icon-btn" id="likeBtn" title="إعجاب">
+          ♡
+        </button>
+
+        <button class="icon-btn" id="favoriteBtn" title="مفضلة">
+          ☆
+        </button>
+
+        <button class="icon-btn" id="copyBtn" title="نسخ">
+          ⧉
+        </button>
+
+        <button class="icon-btn" id="downloadBtn" title="تحميل">
+          ↓
+        </button>
+
+        <button class="icon-btn" id="noteBtn" title="ملاحظة">
+          ✎
+        </button>
+
+        <button class="icon-btn" id="closeReader" title="إغلاق">
+          ×
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="reader-body">
+
+      <div class="poem-purpose">
+        <strong>✦ معنى القصيدة</strong>
+        <p id="readerPurpose"></p>
+      </div>
+
+      <div class="poem-text" id="poemText"></div>
+
+      <div class="note-area" id="noteArea">
+        <textarea id="noteText" placeholder="اكتب ملاحظتك عن القصيدة هنا..."></textarea>
+
+        <button
+          class="btn btn-primary"
+          id="saveNote"
+          style="margin-top:10px">
+          حفظ الملاحظة
+        </button>
+      </div>
+
+    </div>
+
+    <div class="reader-footer">
+
+      <div id="readerStatus" style="color:#858998;font-size:11px">
+        01 / 10
+      </div>
+
+      <div class="reader-nav">
+
+        <button class="btn btn-soft" id="prevBtn">
+          ← السابقة
+        </button>
+
+        <button class="btn btn-soft" id="nextBtn">
+          التالية →
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+/* =========================================================
+   بيانات الديوان
+========================================================= */
+
+const poems = {
+
+1:{
+ title:"ورق ياسمين",
+ purpose:
+ "هذه القصيدة تتناول سوء فهم الكلمات حين يظن القارئ أن كل اسم يرد في النص هو اعتراف بشخص بعينه. الياسمين هنا صورة للجمال والذاكرة والرائحة، وليس وعدًا عاطفيًا لشخص يحمل الاسم.",
+ lines:[
+"كتبتُ عن الياسمينِ، فظنّتْ أنني",
+"كتبتُ إليها، وأن القصيدَ اعترافْ",
+"وقالت: أليسَ اسمي مرَّ في سطرِك؟",
+"فقلتُ: وهل كلُّ اسمٍ دليلُ ائتلاف؟",
+"أنا لم أعلّقْ قصيدتي على اسمٍ",
+"ولا جعلتُ الحروفَ رسائلَ شوقٍ تُطافْ",
+"ولكنَّ في الياسمينِ شيئًا أحبُّه",
+"رائحةٌ تأتي، ثم تمضي خفافْ",
+"كأنَّ الصباحَ إذا مرَّ من نافذةٍ",
+"تركَ على الروحِ شيئًا من الارتجافْ",
+"وقد يعجبُ المرءَ وقعُ الحروفِ",
+"فيأخذُ من الاسمِ موسيقى القوافي العفافْ",
+"فالياسمينُ عندي ليس امرأةً",
+"ولا كلُّ وردٍ يساوي اعترافْ",
+"هو غصنٌ يضيءُ إذا ضاقَ يومي",
+"وعطرٌ يذكّرني بالهدوءِ إذا زادَ الزحامْ",
+"هو صورةُ بيتٍ قديمٍ، وشرفةُ صبحٍ",
+"وصوتُ حمامٍ بعيدٍ، وظلُّ غمامْ",
+"وقد تظنُّ القلوبُ التي تستعجلُ المعنى",
+"أن الكلامَ إذا رقَّ صارَ غرامْ",
+"ولكنَّ القصيدةَ أوسعُ من ذلك",
+"وفيها من الناسِ والوقتِ ألفُ مقامْ",
+"فلا ألومُ التي فهمتْ ما أرادتْ",
+"فبعضُ الكلامِ يجيءُ شبيهَ ابتسامْ",
+"وبعضُ الحروفِ إذا لامستْ موضعًا",
+"ظنَّ صاحبُها أنها تعرفُ الكلامْ",
+"إن قالتْ: كتبتَ عني، سأبتسمُ فقط",
+"فليسَ كلُّ ابتسامٍ وراءَهُ خصامْ",
+"أنا أعرفُ ما كنتُ أقصدهُ جيدًا",
+"وأعرفُ أن النصَّ أكبرُ من أيِّ اسمْ",
+"كتبتُ ورقَ الياسمينِ لأن الورقَ",
+"يحملُ عطرًا خفيفًا ولا يحملُ حكمْ",
+"وقد تسقطُ الورقةُ فوقَ كتابٍ",
+"فتبقى الرائحةُ بينما يمضي الرسمْ",
+"وهكذا نحنُ، بعضُ الوجوهِ تمرُّ",
+"ولكنَّ أثرَها لا يشترطُ أن يكونَ غرامْ",
+"وقد نتذكرُ إنسانَ يومٍ مضى",
+"لأن المكانَ احتفظَ بصوتِ السلامْ",
+"وليسَ الحنينُ دائمًا نحوَ شخصٍ",
+"فقد نشتاقُ يومًا إلى نفسِنا قبلَ عامْ",
+"إلى نسخةٍ كانت ترى العالمَ أوسعَ",
+"وكانتْ تخافُ قليلًا، وتحلمُ دونَ انهزامْ",
+"لذلكَ لا تجعلوا الوردَ سجينَ الحكايات",
+"ولا تجعلوا العطرَ محصورًا في قلبٍ مقامْ",
+"ففي الوردِ معنى، وفي الياسمينِ سؤالٌ",
+"وفي كلِّ شيءٍ جميلٍ بدايةُ كلامْ",
+"وإن مرَّ اسمُ ياسمينَ في قصيدتي",
+"فليسَ ضروريًا أن يكونَ الختامْ",
+"قد يكونُ الاسمُ بابًا إلى زهرةٍ",
+"وقد يكونُ الطريقُ إلى معنىً تمامْ",
+"كتبتُ ورقَ ياسمينٍ، ولم أكتبْ وعدًا",
+"فخذوا القصيدةَ كما جاءتْ: وردًا وسلامْ"
+]
+},
+
+2:{
+ title:"حين يخطئ الناس قراءة الكلام",
+ purpose:
+ "عن المسافة بين ما يقصده الكاتب وما يصل إلى القارئ، وكيف يمكن للكلمة الواحدة أن تفتح أبوابًا لمعانٍ لم تكن في نية صاحبها.",
+ lines:[
+"كتبتُ الكلامَ فصارَ كلامينِ",
+"واحدٌ في فمي، وآخرُ في أذهانِ",
+"أقولُ الطريقَ فيسمعُ بعضٌ",
+"حكايةَ سفرٍ، ويسمعُ آخرُ حرمانِ",
+"وأذكرُ وردًا فيحسبهُ الناسُ عشقًا",
+"وأقصدُ بهِ الصبحَ بعدَ دخانِ",
+"وهذي طبيعةُ حرفٍ إذا خرجَ",
+"لم يعدْ ملكًا لقلبِ كاتبهِ الثاني",
+"فالمعنى يولدُ مرةً في النيةِ",
+"ثم يولدُ أخرى لدى كلِّ إنسانِ",
+"لذلكَ لا أطلبُ من كلِّ قارئٍ",
+"أن يرى في القصيدةِ ما في جناني",
+"فربُّ السطورِ التي أكتبُها هادئًا",
+"توقظُ في غيري ضجيجَ الزمانِ",
+"وربُّ حروفٍ مررتُ بها عابرًا",
+"تقيمُ في شخصٍ طويلَ السنينِ",
+"فلا الكلمةُ مذنبةٌ حين تُفهمُ",
+"ولا القارئُ مذنبٌ في اختلافِ البيانِ",
+"ولكنَّ أجملَ ما في الكتابةِ",
+"أنها تتركُ بابًا بلا حارسٍ في المكانِ",
+"يدخلُ منهُ الذي يحملُ تجربتَهُ",
+"ويخرجُ منها بمعنىً جديدِ العيانِ",
+"فلا تسألوا كلَّ شاعرٍ: من تعني؟",
+"فقد يعني الحياةَ، وقد يعني الزمانِ",
+"وقد يكتبُ الاسمَ لا حبًا بصاحبهِ",
+"ولكنْ لأن الاسمَ موزونُ اللسانِ",
+"وقد يذكرُ البحرَ وليسَ مسافرًا",
+"ولكنْ لأن الموجَ يشبهُ ما في الكيانِ",
+"وقد يكتبُ الليلَ لا خوفًا من الليلِ",
+"ولكنْ لأن السكونَ يعلّمُ الإنسانِ",
+"الكلامُ إذا خرجَ من صدرِ صاحبهِ",
+"صارَ طريقًا بين قلبينِ دونَ أمانِ",
+"فإن وصلَ المعنى على غيرِ قصدهِ",
+"فربما كان في ذلكَ سرُّ البيانِ",
+"أنا لا أكرهُ اختلافَ القراءةِ",
+"ولا أخشى سؤالَ الذينَ يفتشونَ عن عنوانِ",
+"لأنَّ القصيدةَ ليستْ تقريرَ مكتبٍ",
+"ولا ورقةً تحملُ جوابًا بلا نقصانِ",
+"هي احتمالٌ، وظلٌّ، ونبضُ سؤالٍ",
+"ونافذةٌ تطلُّ على ألفِ مكانِ",
+"فدعوا الكلامَ يأخذُ مداهُ",
+"ودعوا القلوبَ تفسرُهُ بما كانَ",
+"وإن أخطأ الناسُ قراءةَ حرفي",
+"فقد علّمتني الحياةُ أن الخطأَ إنسانِ",
+"وأجملُ ما في الكتابةِ عندي",
+"أن يخرجَ منها القارئُ وهو أكثرُ اطمئنانِ",
+"أو يحملُ سؤالًا جديدًا في روحهِ",
+"بدلَ جوابٍ محفوظٍ من كلِّ زمانِ",
+"فأنا أكتبُ لأفتحَ نافذةً",
+"لا لأبني على الكلماتِ جدارَ امتناعِ",
+"وما دامَ في الحرفِ متسعٌ للحياةِ",
+"فدعوا المعاني تمشي بلا حراسِ"
+]
+},
+
+3:{
+ title:"أثر لا يُسمّى",
+ purpose:
+ "قصيدة عن الآثار التي تتركها الأيام والأشخاص والأماكن في داخل الإنسان دون أن يستطيع تسميتها أو وضعها في تعريف واضح.",
+ lines:[
+"بقي في الطريقِ أثرٌ لا أسمّيهِ",
+"كأنَّ المسافةَ تحفظُ ما أخفيهِ",
+"مضيتُ، ولكنَّ بعضَ الخطى",
+"تعودُ إذا ما اشتقتُ إلى ماضيهِ",
+"ولا هو حزنٌ صريحُ الملامحِ",
+"ولا فرحٌ أستطيعُ أن أرويهِ",
+"شيءٌ يمرُّ على القلبِ خفيفًا",
+"ثم يستقرُّ حيثُ لا أدري ما أسميهِ",
+"قد يكونُ المكانُ الذي مررنا بهِ",
+"أو صوتَ بابٍ قديمٍ فتحناهُ يومًا",
+"أو ضوءًا صغيرًا على آخرِ الشارعِ",
+"حين كان المساءُ يطيلُ خطاهُ علينا",
+"وقد يكونُ وجهًا رأيناهُ مرةً",
+"ثم انشغلنا عنهُ بأيامِنا",
+"لكنَّ الذاكرةَ لا تعملُ مثلنا",
+"لا تنسى لأننا قلنا لها: انسينا",
+"تخزنُ الأشياءَ في مواضعَ خفيةٍ",
+"ثم تستعيدُها حين يهدأُ ضجيجُ المدينةِ",
+"فما كلُّ أثرٍ لهُ اسمٌ واضحٌ",
+"ولا كلُّ شعورٍ يصلحُ أن يُروى",
+"هناكَ أشياءُ تعيشُ في الداخلِ",
+"بلا عنوانٍ، ولا بابٍ، ولا دعوى",
+"تجيءُ مع رائحةِ المطرِ أحيانًا",
+"أو مع أغنيةٍ قديمةٍ في المساءْ",
+"فتشعرُ أنكَ عدتَ إلى نفسكِ",
+"بعدَ غيابٍ لم تعرفْ لهُ ابتداءْ",
+"وهذا الذي لا أسمّيهِ اليومَ",
+"قد يكونُ أجملَ مما أستطيعُ وصفَهُ",
+"لأنَّ بعضَ المعاني إذا سُمّيتْ",
+"صارت أصغرَ من حقيقتها حين نكشفُها",
+"لذلكَ أتركُ للأثرِ مساحتَهُ",
+"ولا أضعُ حولَهُ سياجَ الكلامِ",
+"فما بينَ القلبِ والذاكرةِ",
+"أسرارُ لا تحتاجُ إلى ختمٍ أو عنوانِ",
+"قد يرحلُ الإنسانُ، ويبقى صوتهُ",
+"وقد يختفي المكانُ، ويبقى ظلالهُ",
+"وقد ينتهي اليومُ، لكنَّ تفاصيلَهُ",
+"تظلُّ فينا كأنها لم ترحلْ",
+"نحنُ لا نحيا بالأحداثِ وحدها",
+"بل بما تتركهُ الأحداثُ فينا",
+"وبما نتعلمهُ بعدَ انقضائها",
+"وبما نصيرُ إليهِ بعدها",
+"لذلكَ إذا شعرتَ بشيءٍ لا اسمَ لهُ",
+"فلا تستعجلْ أن تطردَهُ من قلبِك",
+"ربما جاءَ ليخبركَ أنكَ تغيّرتَ",
+"وأنَّ الطريقَ الطويلَ لم يذهبْ هباءً",
+"وربما كان أثرًا بسيطًا",
+"لكنهُ دليلٌ على أنكَ كنتَ هنا",
+"وأنَّ الأيامَ مرّتْ بكَ حقًا",
+"وتركتْ فيك شيئًا لا يُسمّى"
+]
+}
+
+};
+
+/* =========================================================
+   حالة التطبيق
+========================================================= */
+
+let currentId = 1;
+
+const favorites =
+  JSON.parse(localStorage.getItem("wardFavorites") || "[]");
+
+const likes =
+  JSON.parse(localStorage.getItem("wardLikes") || "[]");
+
+const notes =
+  JSON.parse(localStorage.getItem("wardNotes") || "{}");
+
+/* =========================================================
+   العناصر
+========================================================= */
+
+const reader = document.getElementById("reader");
+const readerTitle = document.getElementById("readerTitle");
+const readerNumber = document.getElementById("readerNumber");
+const readerPurpose = document.getElementById("readerPurpose");
+const poemText = document.getElementById("poemText");
+const readerStatus = document.getElementById("readerStatus");
+
+const likeBtn = document.getElementById("likeBtn");
+const favoriteBtn = document.getElementById("favoriteBtn");
+
+const noteArea = document.getElementById("noteArea");
+const noteText = document.getElementById("noteText");
+
+const toast = document.getElementById("toast");
+
+/* =========================================================
+   أدوات مساعدة
+========================================================= */
+
+function showToast(message){
+
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer = setTimeout(()=>{
+    toast.classList.remove("show");
+  },2200);
+}
+
+function saveState(){
+
+  localStorage.setItem(
+    "wardFavorites",
+    JSON.stringify(favorites)
+  );
+
+  localStorage.setItem(
+    "wardLikes",
+    JSON.stringify(likes)
+  );
+
+  localStorage.setItem(
+    "wardNotes",
+    JSON.stringify(notes)
+  );
+}
+
+function renderReader(){
+
+  const poem = poems[currentId];
+
+  if(!poem) return;
+
+  readerTitle.textContent = poem.title;
+
+  readerNumber.textContent =
+    "القصيدة رقم " +
+    String(currentId).padStart(2,"0");
+
+  readerPurpose.textContent =
+    poem.purpose;
+
+  poemText.innerHTML =
+    poem.lines
+      .map(line=>`<span class="line">${line}</span>`)
+      .join("");
+
+  readerStatus.textContent =
+    String(currentId).padStart(2,"0") +
+    " / 10";
+
+  likeBtn.classList.toggle(
+    "active",
+    likes.includes(currentId)
+  );
+
+  likeBtn.textContent =
+    likes.includes(currentId) ? "♥" : "♡";
+
+  favoriteBtn.classList.toggle(
+    "active",
+    favorites.includes(currentId)
+  );
+
+  favoriteBtn.textContent =
+    favorites.includes(currentId) ? "★" : "☆";
+
+  noteText.value =
+    notes[currentId] || "";
+
+}
+
+/* =========================================================
+   فتح القصيدة
+========================================================= */
+
+function openPoem(id){
+
+  currentId = Number(id);
+
+  renderReader();
+
+  reader.classList.add("show");
+
+  document.body.style.overflow = "hidden";
+
+  window.location.hash = "poem-" + currentId;
+}
+
+function closePoem(){
+
+  reader.classList.remove("show");
+
+  document.body.style.overflow = "";
+
+  if(location.hash.startsWith("#poem-")){
+    history.replaceState(
+      null,
+      "",
+      location.pathname + location.search
+    );
+  }
+}
+
+/* =========================================================
+   كروت القصائد
+========================================================= */
+
+document.querySelectorAll(".poem-card")
+.forEach(card=>{
+
+  card.addEventListener("click",()=>{
+
+    openPoem(
+      Number(card.dataset.id)
+    );
+
+  });
+
+});
+
+/* =========================================================
+   إغلاق
+========================================================= */
+
+document
+.getElementById("closeReader")
+.addEventListener("click",closePoem);
+
+reader.addEventListener("click",e=>{
+
+  if(e.target === reader){
+    closePoem();
+  }
+
+});
+
+/* =========================================================
+   السابقة والتالية
+========================================================= */
+
+document
+.getElementById("prevBtn")
+.addEventListener("click",()=>{
+
+  currentId--;
+
+  if(currentId < 1){
+    currentId = 10;
+  }
+
+  renderReader();
+
+});
+
+document
+.getElementById("nextBtn")
+.addEventListener("click",()=>{
+
+  currentId++;
+
+  if(currentId > 10){
+    currentId = 1;
+  }
+
+  renderReader();
+
+});
+
+/* =========================================================
+   إعجاب
+========================================================= */
+
+likeBtn.addEventListener("click",()=>{
+
+  const index =
+    likes.indexOf(currentId);
+
+  if(index === -1){
+
+    likes.push(currentId);
+
+    showToast("تم تسجيل إعجابك ❤️");
+
+  }else{
+
+    likes.splice(index,1);
+
+    showToast("تم إلغاء الإعجاب");
+
+  }
+
+  saveState();
+  renderReader();
+
+});
+
+/* =========================================================
+   المفضلة
+========================================================= */
+
+favoriteBtn.addEventListener("click",()=>{
+
+  const index =
+    favorites.indexOf(currentId);
+
+  if(index === -1){
+
+    favorites.push(currentId);
+
+    showToast("أضيفت إلى المفضلة ★");
+
+  }else{
+
+    favorites.splice(index,1);
+
+    showToast("أزيلت من المفضلة");
+
+  }
+
+  saveState();
+  renderReader();
+
+});
+
+/* =========================================================
+   نسخ القصيدة
+========================================================= */
+
+document
+.getElementById("copyBtn")
+.addEventListener("click",async()=>{
+
+  const poem = poems[currentId];
+
+  const text =
+    poem.title +
+    "\n\n" +
+    poem.lines.join("\n");
+
+  try{
+
+    await navigator.clipboard.writeText(text);
+
+    showToast("تم نسخ القصيدة كاملة");
+
+  }catch{
+
+    showToast("تعذر النسخ تلقائيًا");
+
+  }
+
+});
+
+/* =========================================================
+   تحميل القصيدة TXT
+========================================================= */
+
+document
+.getElementById("downloadBtn")
+.addEventListener("click",()=>{
+
+  const poem = poems[currentId];
+
+  const text =
+    "ديوان الورد والياسمين\n" +
+    "أحببتُ الملك\n\n" +
+    poem.title +
+    "\n\n" +
+    poem.lines.join("\n") +
+    "\n\n— يوسف أشرف الجرف";
+
+  const blob =
+    new Blob(
+      [text],
+      {type:"text/plain;charset=utf-8"}
+    );
+
+  const url =
+    URL.createObjectURL(blob);
+
+  const a =
+    document.createElement("a");
+
+  a.href = url;
+
+  a.download =
+    poem.title + ".txt";
+
+  document.body.appendChild(a);
+
+  a.click();
+
+  a.remove();
+
+  URL.revokeObjectURL(url);
+
+  showToast("تم تجهيز القصيدة للتحميل");
+
+});
+
+/* =========================================================
+   الملاحظات
+========================================================= */
+
+document
+.getElementById("noteBtn")
+.addEventListener("click",()=>{
+
+  noteArea.classList.toggle("show");
+
+  if(noteArea.classList.contains("show")){
+    noteText.focus();
+  }
+
+});
+
+document
+.getElementById("saveNote")
+.addEventListener("click",()=>{
+
+  notes[currentId] =
+    noteText.value.trim();
+
+  saveState();
+
+  showToast("تم حفظ ملاحظتك");
+
+});
+
+/* =========================================================
+   البحث
+========================================================= */
+
+const searchInput =
+  document.getElementById("searchInput");
+
+const emptyState =
+  document.getElementById("emptyState");
+
+function applySearch(){
+
+  const query =
+    searchInput.value
+      .trim()
+      .toLowerCase();
+
+  let visible = 0;
+
+  document
+  .querySelectorAll(".poem-card")
+  .forEach(card=>{
+
+    const id =
+      Number(card.dataset.id);
+
+    const title =
+      card.dataset.title.toLowerCase();
+
+    const poem =
+      poems[id];
+
+    const searchable =
+      (
+        title +
+        " " +
+        poem.purpose +
+        " " +
+        poem.lines.join(" ")
+      ).toLowerCase();
+
+    const activeFilter =
+      document
+      .querySelector(".filter.active")
+      ?.dataset.filter || "all";
+
+    const matchesSearch =
+      searchable.includes(query);
+
+    const matchesFavorite =
+      activeFilter === "all" ||
+      favorites.includes(id);
+
+    const show =
+      matchesSearch &&
+      matchesFavorite;
+
+    card.style.display =
+      show ? "" : "none";
+
+    if(show) visible++;
+
+  });
+
+  emptyState.classList.toggle(
+    "show",
+    visible === 0
+  );
+
+}
+
+searchInput
+.addEventListener("input",applySearch);
+
+/* =========================================================
+   الفلاتر
+========================================================= */
+
+document
+.querySelectorAll(".filter")
+.forEach(filter=>{
+
+  filter.addEventListener("click",()=>{
+
+    document
+    .querySelectorAll(".filter")
+    .forEach(x=>x.classList.remove("active"));
+
+    filter.classList.add("active");
+
+    applySearch();
+
+  });
+
+});
+
+/* =========================================================
+   لوحة المفاتيح
+========================================================= */
+
+document.addEventListener("keydown",e=>{
+
+  if(!reader.classList.contains("show")){
+    return;
+  }
+
+  if(e.key === "Escape"){
+    closePoem();
+  }
+
+  if(e.key === "ArrowRight"){
+    currentId++;
+    if(currentId > 10) currentId = 1;
+    renderReader();
+  }
+
+  if(e.key === "ArrowLeft"){
+    currentId--;
+    if(currentId < 1) currentId = 10;
+    renderReader();
+  }
+
+});
+
+/* =========================================================
+   فتح القصيدة من الرابط
+========================================================= */
+
+if(location.hash.startsWith("#poem-")){
+
+  const id =
+    Number(
+      location.hash
+        .replace("#poem-","")
+    );
+
+  if(poems[id]){
+    openPoem(id);
+  }
+
+}
+
+</script>
+
+</body>
+    </html>
